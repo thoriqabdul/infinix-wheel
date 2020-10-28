@@ -48,12 +48,13 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background-image: url('/image/backkgrounf');
+            background-image: url('/image/backkgrounf.png');
             width: 100%;
             height: 100%;
             opacity: 0.26;
             background-position: center;
             background-repeat: no-repeat;
+            background-size: cover
         }
         
         .font-size{
@@ -166,8 +167,10 @@
         if (isSpinning) {
             // Stop the arrow
             isSpinning = false;
+            // console.log(2222, isSpinning, currentSlice)
             clearInterval(toggleSpinning.spinInt);
             spinButton.removeAttribute("disabled");
+            // currentSlice = currentSlice == 1 || currentSlice == 3 || currentSlice == 5 || currentSlice == 7  ? currentSlice : currentSlice + 1;
         }
         else {
             // Start spinning the arrow
@@ -175,6 +178,7 @@
             toggleSpinning.spinInt = setInterval(spinWheel, 1000/60);
             // Set how long the wheel will be spinning
             var duration = Math.floor(Math.random() * 2000) + 1000;
+
             setTimeout(toggleSpinning, duration);
             // Disable the spin button
             spinButton.setAttribute("disabled", "true");
@@ -185,14 +189,31 @@
     function spinWheel() {
         // Rotate the spinner arrow
         rotation = (rotation + 12) % 360;
-        console.log(rotation);
+        // console.log(rotation);
         arrow.setAttributeNS(null, "transform", "rotate("+rotation+",200,200)");
         // Highlight the slice the arrow is above
         var newSlice = Math.floor(rotation / (360/numSlices));
         if (newSlice != currentSlice) {
-            slices[currentSlice].toggleOverlay();
-            slices[newSlice].toggleOverlay();
-            currentSlice = newSlice;
+            console.log(22, isSpinning);
+            if(isSpinning){
+                slices[currentSlice].toggleOverlay();
+                slices[newSlice].toggleOverlay();
+                currentSlice = newSlice;
+            }else{
+                
+
+                // if(newSlice == 1 && newSlice == 3 && newSlice == 5 && newSlice == 7){
+                //     console.log(22, isSpinning, currentSlice, 'genap');
+                //     slices[currentSlice+1].toggleOverlay();
+                //     slices[newSlice+1].toggleOverlay();
+                //     currentSlice =  newSlice + 1;
+                // }else{
+                //     console.log(22, isSpinning, currentSlice, 'ganjil');
+                //     slices[currentSlice].toggleOverlay();
+                //     slices[newSlice].toggleOverlay();
+                //     currentSlice = newSlice;
+                // }
+            }
         }
     }
 

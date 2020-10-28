@@ -32,7 +32,7 @@
         }
         .masthead {
           height: 700px;
-          background-image: url('/image/spin'), url('/image/backkgrounf');
+          background-image: url('/image/spin.png'), url('/image/backkgrounf.png');
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
