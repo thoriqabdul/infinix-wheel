@@ -221,13 +221,11 @@
                       </table>
 
                   </div>
-                  <div class="col-lg-6 mt-5">
-                        <div class="position-absolute" style="margin-left: 150px; margin-top:80px;">
-                            <img src="{{asset('image/p-back')}}" alt="" width="279" height="612">
-                        </div>
-                        <div class="position-absolute" style="margin-left: 380px">
-                            <img src="{{asset('image/p-front')}}" alt="" width="247" height="724">
-                        </div>
+                  <div class="col-lg-8 col-12">
+                      <div class="text-center">
+                        <img src="{{asset('image/phone.png')}}" alt="" width="" height="900">
+                      </div>
+                            
                   </div>
               </div>
 
