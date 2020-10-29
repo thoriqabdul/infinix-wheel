@@ -1,9 +1,7 @@
 @extends('layouts.base')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-4">
+<div class="col-lg-4 col-md-6 col-12 the_wheel text-center">
             <div class="card bg-dark" style="border-radius: 5%;">
                 <div class="card-body p-5" style="margin-top: 40px">
                     <!-- Material input -->
@@ -28,7 +26,7 @@
                       
                 </div>
             </div>
-        </div>
+</div>
         {{-- <div class="col-md-8">
             <div class="card bg-dark">
                 <div class="card-header">{{ __('Login') }}</div>

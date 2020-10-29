@@ -61,12 +61,21 @@
             font-size: 10px;
         }
 
-        #prizePointer {
-            position: absolute;
-            left: 556px;
-            top: 40px;
-            z-index: 999;
-            }
+        #wrapper {
+          position: relative;
+          width: 300px;
+      }
+ 
+      #canvas {
+          z-index: 1;
+      }
+      
+      #prizePointer {
+          position: absolute;
+          left: 143px;
+          top: 45px;
+          z-index: 999;
+      }
 
         
        
@@ -76,16 +85,14 @@
     @include('layouts.header')
     <header class="masthead">
         <div class="bg"></div>
-      <div class="container h-100 pb-0">
-        <div class="row h-100 align-items-center p-0 text-center">
+      <div class="container">
+        <div class="row justify-content-center text-center">
           <div class="col-12 mt-5">
             @stack('googd_heade')
           </div>
-          <div class="col-12 the_wheel text-center">
             @yield('content')
-          </div>
           <div class="col-12 pt-5">
-            <div class="col-12 text-center font-size">
+            <div class="text-center font-size">
                 <span class="text-white">© 2020 by INFINIX., All Rights Reserved.</span> <br>
                 <p style="color: #6775AF">Sports betting is associated with problem gambling. Play responsibly. As a player, you are required to comply with the norms and laws of government institutions and authorities in your country. Cota365 cannot, in any way, assume responsibility for unlawful or unauthorized use of its contents and services. Minors are prohibited from participating in sports betting or other games on this website. All information on this website is subject to change at any time without prior notice.</p>
             </div>

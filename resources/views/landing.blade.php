@@ -32,11 +32,32 @@
         }
         .masthead {
           height: 700px;
-          background-image: url('/image/spin.png'), url('/image/backkgrounf.png');
+          background-image: url('/image/backkgrounf.png');
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
         }
+
+        @media screen and (min-width: 601px) {
+      .header-1 {
+        font-size: 60px;
+        }
+        .header-2{
+          font-size: 48px; 
+          color:#27ECDC
+        }
+      }
+
+    /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+    @media screen and (max-width: 600px) {
+      .header-1 {
+        font-size: 40px;
+      }
+      .header-2{
+          font-size: 30px; 
+          color:#27ECDC
+        }
+    }
     </style>
 </head>
 <body style="background-color: #0D1228">
@@ -51,30 +72,34 @@
         </div>
     </nav>
     <header class="masthead">
-      <div class="container h-100 pb-0">
-        <div class="row h-100 align-items-center p-0">
-          <div class="col-12 mt-5">
-            <h1 class="font-weight-light text-white" style="font-size: 60px">#ANTIKALAH</h1>
-            <h1 class="font-weight-light" style="font-size: 48px; color:#27ECDC">LUCKY WHEEL</h1>
-            <div class="row align-items-center w-25">
-              <div class="col-lg-6 col-6 p-1">
-                <a href="{{route('login')}}" class="btn btn-info w-100" style="border-radius: 50px">Login</a>
+      <div class="container h-100 pb-0 p-2">
+        <div class="row h-100 align-items-center">
+          <div class="col-lg-4 col-12 mt-5">
+            <h1 class="font-weight-light text-white header-1">#ANTIKALAH</h1>
+            <h1 class="font-weight-light header-2">LUCKY WHEEL</h1>
+            <div class="row align-items-center m-0">
+              <div class="col-lg-6 col-12 p-1 text-center">
+                <a href="{{route('login')}}" class="btn btn-info btn-block" style="border-radius: 50px">Login</a>
               </div>
-              <div class="col-lg-6 col-6 p-1">
-                  <a href="{{route('register')}}" class="btn btn-outline-info w-100" style="border-radius: 50px">Register</a>
+              <div class="col-lg-6 col-12 p-1 text-center">
+                  <a href="{{route('register')}}" class="btn btn-outline-info btn-block" style="border-radius: 50px">Register</a>
               </div>
             </div>
           </div>
           <div class="col-12 pt-5">
             <h5 class="power text-white">Powered By</h5>
-            <img src="{{asset('image/x')}}" alt="" width="157">
+            <img src="{{asset('image/x.png')}}" alt="" width="157">
             <br>
             <br>
             <p style="color: #6775AF">PARTICIPAN ALL TIME</p>
             <h3  style="color: #31EEDA">2,000,000</h3>
           </div>
+          <div class="position-absolute d-none d-sm-block" style="left: 800px">
+            <img src="{{asset('image/spin-gatot.png')}}" class="float-left" alt="" width="1000" height="700">
+          </div>
         </div>
       </div>
+      
     </header>
     {{-- <div class="jumbotron jumbotron-fluid" style="background-image:url('/image/backkgrounf'); background-size: cover; height:794px">
         <div class="container-fluid" style="background-image:url('/image/spin'); background-size: cover;">
@@ -221,10 +246,8 @@
                       </table>
 
                   </div>
-                  <div class="col-lg-8 col-12">
-                      <div class="text-center">
-                        <img src="{{asset('image/phone.png')}}" alt="" width="" height="900">
-                      </div>
+                  <div class="col-lg-8 col-12 text-center">
+                        <img src="{{asset('image/phone.png')}}" alt="" width="" class="img-fluid">
                             
                   </div>
               </div>

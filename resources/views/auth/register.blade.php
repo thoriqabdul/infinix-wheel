@@ -1,34 +1,32 @@
 @extends('layouts.base')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-4">
-            <div class="card bg-dark" style="border-radius: 5%;">
-                <div class="card-body p-5" style="margin-top: 40px">
-                    <!-- Material input -->
-                    <div class="md-form input-with-post-icon ">
-                        <i class="fas fa-user input-prefix"></i>
-                        <input type="text" id="suffixInside" class="form-control" placeholder="Username">
-                        <label for="suffixInside"></label>
-                      </div><div class="md-form input-with-post-icon">
-                        <i class="fas fa-lock input-prefix"></i>
-                        <input type="text" id="suffixInside" class="form-control" placeholder="Email">
-                        <label for="suffixInside"></label>
-                      </div><div class="md-form input-with-post-icon">
-                        <i class="fas fa-lock input-prefix"></i>
-                        <input type="text" id="suffixInside" class="form-control" placeholder="Verify Passcode">
-                        <label for="suffixInside"> </label>
-                      </div>
-                      <div class="">
-                          <span class="text-white">or Sign in with</span> <br>
-                          <img src="{{asset('image/x')}}" alt="" width="80"><br><br>
-                          <a href="{{route('spin')}}" class="btn btn-info">Sign In</a>
-                      </div>
-                      
-                </div>
-            </div>
+<div class="col-lg-4 col-md-6 col-12 the_wheel text-center">
+    <div class="card bg-dark" style="border-radius: 5%;">
+        <div class="card-body p-5" style="margin-top: 40px">
+            <!-- Material input -->
+            <div class="md-form input-with-post-icon ">
+                <i class="fas fa-user input-prefix"></i>
+                <input type="text" id="suffixInside" class="form-control" placeholder="Username">
+                <label for="suffixInside"></label>
+              </div><div class="md-form input-with-post-icon">
+                <i class="fas fa-lock input-prefix"></i>
+                <input type="text" id="suffixInside" class="form-control" placeholder="Email">
+                <label for="suffixInside"></label>
+              </div><div class="md-form input-with-post-icon">
+                <i class="fas fa-lock input-prefix"></i>
+                <input type="text" id="suffixInside" class="form-control" placeholder="Verify Passcode">
+                <label for="suffixInside"> </label>
+              </div>
+              <div class="">
+                  <span class="text-white">or Sign in with</span> <br>
+                  <img src="{{asset('image/x')}}" alt="" width="80"><br><br>
+                  <a href="{{route('spin')}}" class="btn btn-info">Sign In</a>
+              </div>
+              
         </div>
+    </div>
+</div>
         {{-- <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>

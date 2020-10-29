@@ -6,11 +6,11 @@
 @endpush
 @section('content')
 <div id="wrapper">
-    <img id="prizePointer" src="{{asset('image/point.png')}}" alt="V" width="30" height="50" />
+    
     <canvas id="canvas" width="315" height="418">
         <p style="{color: white}" align="center">Sorry, your browser doesn't support canvas. Please try another.</p>
     </canvas>
-    
+    <img id="prizePointer" src="{{asset('image/pinter.png')}}" alt="V" width="30" height="50" />
     <div id="button-holder">
         <button class="btn btn-info p-2 w-25 rounded" id="spin_button" onclick="startSpin();">Spin</button>
     </div>
