@@ -78,12 +78,15 @@
             <h1 class="font-weight-light text-white header-1">#ANTIKALAH</h1>
             <h1 class="font-weight-light header-2">LUCKY WHEEL</h1>
             <div class="row align-items-center m-0">
+              @if (!Auth::check())
               <div class="col-lg-6 col-12 p-1 text-center">
                 <a href="{{route('login')}}" class="btn btn-info btn-block" style="border-radius: 50px">Login</a>
               </div>
               <div class="col-lg-6 col-12 p-1 text-center">
                   <a href="{{route('register')}}" class="btn btn-outline-info btn-block" style="border-radius: 50px">Register</a>
               </div>
+              @endif
+             
             </div>
           </div>
           <div class="col-12 pt-5">
@@ -101,43 +104,6 @@
       </div>
       
     </header>
-    {{-- <div class="jumbotron jumbotron-fluid" style="background-image:url('/image/backkgrounf'); background-size: cover; height:794px">
-        <div class="container-fluid" style="background-image:url('/image/spin'); background-size: cover;">
-          <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 col-12">
-                    <h1 class="text-white roobot">#ANTIKALAH</h1>
-                    <h1 class="rooboot" style="color: #31EEDA">LUCKY WHEEL</h1>
-                    <div class="row align-items-center">
-                        <div class="col-lg-4 col-6 p-1">
-                            <button class="btn btn-info w-100" style="border-radius: 50px">Login</button>
-                        </div>
-                        <div class="col-lg-4 col-6 p-1">
-                            <button class="btn btn-outline-info w-100" style="border-radius: 50px">Register</button>
-                        </div>
-                    </div>
-                    <div class="position-absolute text-white mt-5">
-                        <h5 class="power">Powered By</h5>
-                        <img src="{{asset('image/x')}}" alt="" width="157">
-                        <br>
-                        <br>
-                        <br>
-                        <p style="color: #6775AF">PARTICIPAN ALL TIME</p>
-                        <h3  style="color: #31EEDA">2,000,000</h3>
-                    </div>
-                </div>
-                <div class="col-lg-6 d-none d-sm-block">
-                    <img src="{{asset('image/jerapah.png')}}" alt="" width="600">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-6" style="border:1px solid white">
-                    <h1 class="text-white">aaaa</h1>
-                </div>
-            </div>
-          </div>
-        </div>
-      </div> --}}
 
           <div class="container">
               <div class="row">

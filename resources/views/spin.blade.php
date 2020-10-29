@@ -2,23 +2,30 @@
 
 @push('googd_heade')
     
-<h1 class="font-weight-light text-white" style="font-size: 60px;top: 154px;">LET'S LUCKY DRAW</h1>
+<h1 class="font-weight-light text-white slackc" style="font-size: 60px;top: 154px;">LET'S LUCKY DRAW</h1>
 @endpush
 @section('content')
-<div id="wrapper">
-    
-    <canvas id="canvas" width="315" height="418">
-        <p style="{color: white}" align="center">Sorry, your browser doesn't support canvas. Please try another.</p>
-    </canvas>
-    <img id="prizePointer" src="{{asset('image/pinter.png')}}" alt="V" width="30" height="50" />
-    <div id="button-holder">
-        <button class="btn btn-info p-2 w-25 rounded" id="spin_button" onclick="startSpin();">Spin</button>
+<div class="sampuy">
+    <div id="wrapper">
+        <canvas id="canvas" width="315" height="418">
+            <p style="{color: white}" align="center">Sorry, your browser doesn't support canvas. Please try another.</p>
+        </canvas>
+        <img id="prizePointer" src="{{asset('image/pinter.png')}}" alt="V" />
+        <div id="button-holder" class="text-center">
+            <button class="btn btn-info p-2 w-25 rounded" id="spin_button" onclick="startSpin();">Spin</button>
+        </div>
     </div>
 </div>
+
 @endsection
 
 @push('js_push')
 <script>
+    var d = new Date();
+    var n = d.getMinutes(); 
+        const genap = n%2 == 0 ? [48, 50, 62, 80, 140, 148, 160, 170, 230, 246, 250,260, 320, 328, 336, 342] : [1,5,9,125,127,119,183,197,203]
+        const random = Math.floor(Math.random() * genap.length);
+        const stoped = (genap[random]);
     // Create new wheel object specifying the parameters at creation time.
     var theWheel = new Winwheel({
         'numSegments'       : 8,         // Specify number of segments.
@@ -133,9 +140,7 @@
     // -------------------------------------------------------
     function startSpin()
     {
-        const ray = [48, 50, 62, 80, 140, 149, 160, 170, 230, 246, 250,260, 320, 329, 336, 342]
-        const random = Math.floor(Math.random() * ray.length);
-const stoped = (ray[random]);
+        
         // Ensure that spinning can't be clicked again while already running.
         if (wheelSpinning == false)
         {
@@ -160,7 +165,7 @@ const stoped = (ray[random]);
             // stop at 1 [1 - 45], 2 [48 - 90], 3 [91 -135]
             let stopAt = stoped
             // let stopAt = (30 + Math.floor((Math.random() * 43)))
-            console.log(22, stopAt)
+            // console.log(22, stopAt)
 
             // Important thing is to set the stopAngle of the animation before stating the spin.
             theWheel.animation.stopAngle = stopAt;
@@ -196,8 +201,22 @@ const stoped = (ray[random]);
     // -------------------------------------------------------
     function alertPrize(indicatedSegment)
     {
+        console.log(22, stoped)
+        var slam = stoped
+        navAjax(slam);
+        $('.slackc').remove()
         // Do basic alert of the segment text. You would probably want to do something more interesting with this information.
-        alert("The wheel stopped on " + indicatedSegment.text);
+        // alert("The wheel stopped on " + indicatedSegment.text);
+    }
+
+    let navAjax = (slam) => {
+        $.ajax({
+            url: '{{route('kalah')}}?q='+slam,
+            dataType: 'html',
+            success: function(response){
+                $('.sampuy').html(response);
+            }
+        })
     }
     
 </script>

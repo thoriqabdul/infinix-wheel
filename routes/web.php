@@ -14,11 +14,15 @@
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
-Route::get('/Register', 'AuthController@regist')->name('regist');
-Route::get('/', 'AuthController@index')->name('landing');
-Route::get('/spin', 'AuthController@spin')->name('spin');
-
 Auth::routes();
+// Route::get('/Register', 'AuthController@regist')->name('regist');
+Route::get('/', 'AuthController@index')->name('landing');
+
+
+Route::group(['middleware'=>['auth']], function() {
+    Route::get('/spin', 'AuthController@spin')->name('spin');
+    Route::get('/kalah', 'AuthController@kalah')->name('kalah');
+Route::get('/menang', 'AuthController@menang')->name('menang');
+});
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -72,10 +72,43 @@
       
       #prizePointer {
           position: absolute;
-          left: 143px;
+          left: 129px;
           top: 45px;
           z-index: 999;
       }
+        .kalah {
+          top: -30px;
+          position: relative;
+      }
+ 
+      .baner {
+          z-index: 1;
+      }
+      
+      .ket {
+          position: absolute;
+          text-align: center;
+          left: 144px;
+          top: 50px;
+          z-index: 999;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .foot {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+      }
+    }
+
+    @media only screen and (min-width: 605px) {
+      .foot {
+        position: absolute;
+        bottom: 0;
+        width: 50%;
+        z-index: 0;
+      }
+}
 
         
        
@@ -91,8 +124,12 @@
             @stack('googd_heade')
           </div>
             @yield('content')
+          
+        </div>
+        <div class="row">
           <div class="col-12 pt-5">
             <div class="text-center font-size">
+                <img src="{{asset('image/x.png')}}" alt="" width="100" height="30"><br><br>
                 <span class="text-white">© 2020 by INFINIX., All Rights Reserved.</span> <br>
                 <p style="color: #6775AF">Sports betting is associated with problem gambling. Play responsibly. As a player, you are required to comply with the norms and laws of government institutions and authorities in your country. Cota365 cannot, in any way, assume responsibility for unlawful or unauthorized use of its contents and services. Minors are prohibited from participating in sports betting or other games on this website. All information on this website is subject to change at any time without prior notice.</p>
             </div>
@@ -106,7 +143,7 @@
 
 
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="{{asset('js/jquery.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="{{asset('js/Winwheel.js')}}"></script>

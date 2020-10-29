@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Auth;
 use GuzzleHttp\Exception\RequestException;
 
 class AuthController extends Controller
@@ -49,5 +50,17 @@ class AuthController extends Controller
 
     public function spin(){
         return view('spin');
+    }
+
+    public function kalah(Request $req){
+        if($req->q%2 == 0){
+            $user = Auth::user()->username;
+            return view('menang', compact('user'));
+        }else{
+            return view('kalah');
+        }
+    }
+    public function menang(){
+        return view('menang');
     }
 }
