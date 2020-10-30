@@ -55,7 +55,7 @@ return [
          * Path to service account json file. You can also pass the credentials as an array
          * instead of a file path.
          */
-        'file' => storage_path('app/data-winner-5251d75b58e2.json'),
+        'file' => storage_path('data-winner-5251d75b58e2.json'),
     ],
 
     /*
