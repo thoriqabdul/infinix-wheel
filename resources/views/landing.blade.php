@@ -58,6 +58,18 @@
           color:#27ECDC
         }
     }
+
+    .nav-item .active {
+
+    background-color: #31EEDA !important;
+    border-radius: 0;
+    color : #1D114F !important;
+
+    }
+
+    .nav-item a{
+      color: #6775AF !important;
+    }
     </style>
 </head>
 <body style="background-color: #0D1228">
@@ -97,7 +109,7 @@
             <p style="color: #6775AF">PARTICIPAN ALL TIME</p>
             <h3  style="color: #31EEDA">2,000,000</h3>
           </div>
-          <div class="position-absolute d-none d-sm-block" style="left: 550px">
+          <div class="position-absolute d-none d-sm-block" style="left: 730px">
             <img src="{{asset('image/spin-gatot.png')}}" class="float-left" alt="" width="1000" height="700">
           </div>
         </div>
@@ -106,113 +118,83 @@
     </header>
 
           <div class="container">
-              <div class="row">
-                  <div class="col-lg-4 col-12">
-                    <ul class="nav nav-pills">
-                        <li class="nav-item">
-                          <a class="btn btn-info nav-link active rounded-0" href="#">All</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link rounded-0" href="#" style="color: #6775AF">This Weeks</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link rounded-0" href="#" style="color: #6775AF">Last Weeks</a>
-                        </li>
-                      </ul>
-                      <table class="table borderless float-left" style="border:none;">
-                        <thead>
-                          <tr>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                          </tr>
-                          <tr>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                          </tr>
-                          <tr>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                          </tr>
-                          <tr>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                          </tr>
-                          <tr>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                          </tr>
-                          <tr>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                          </tr>
-                          <tr>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                          </tr>
-                          <tr>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                          </tr>
-                          <tr>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                          </tr>
-                          <tr>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                          </tr>
-                          <tr>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                          </tr>
-                          <tr>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                          </tr>
-                          <tr>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                          </tr>
-                          <tr>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                          </tr>
-                          <tr>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                          </tr>
-                          <tr>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                          </tr>
-                        </tbody>
-                      </table>
-
+              <div class="row align-items-center">
+                  <div class="col-lg-5 col-12">
+                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                      <li class="nav-item">
+                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" >All</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" >This Weeks</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" >Last Weeks</a>
+                      </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <table class="table borderless float-left" style="border:none;">
+                          <thead>
+                            <tr>
+                              <th scope="col">USER</th>
+                              <th scope="col">TIME</th>
+                              <th scope="col">WINNER</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            @foreach ($all as $a)
+                            <tr>
+                              <td>{{$a->user->username}}</td>
+                              <td>{{date('h:i A', strtotime($a->created_at))}}</td>
+                              <td><span style="color:#3CC513">Skin ML</span></td>
+                            </tr>
+                            @endforeach
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <table class="table borderless float-left" style="border:none;">
+                          <thead>
+                            <tr>
+                              <th scope="col">First</th>
+                              <th scope="col">Last</th>
+                              <th scope="col">Handle</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            @foreach ($thisWeak as $a)
+                            <tr>
+                              <td>{{$a->user->username}}</td>
+                              <td>{{date('h:i A', strtotime($a->created_at))}}</td>
+                              <td><span style="color:#3CC513">Skin ML</span></td>
+                            </tr>
+                            @endforeach
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                        <table class="table borderless float-left" style="border:none;">
+                          <thead>
+                            <tr>
+                              <th scope="col">First</th>
+                              <th scope="col">Last</th>
+                              <th scope="col">Handle</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            @foreach ($lastWeak as $a)
+                            <tr>
+                              <td>{{$a->user->username}}</td>
+                              <td>{{date('h:i A', strtotime($a->created_at))}}</td>
+                              <td><span style="color:#3CC513">Skin ML</span></td>
+                            </tr>
+                            @endforeach
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
                   </div>
-                  <div class="col-lg-8 col-12 text-center">
+                  <div class="col-lg-7 col-12 text-center">
                         <img src="{{asset('image/phone.png')}}" alt="" width="" class="img-fluid">
                             
                   </div>
@@ -244,8 +226,12 @@
     $(window).ready(function(){
         $("tr:even").css({"background-color": "#19203C", "color":'#6775AF'});
         $("tr:odd").css({"background-color": "transparent", "color":'#6775AF'});
+        // $('.nav-item > .active').css({'background-color': '#31EEDA', 'border-radius' : 0})
         // console.log(a)
     })
+
+
+    
 </script>
 </body>
 </html>

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Auth;
 use GuzzleHttp\Exception\RequestException;
+use Carbon\Carbon;
 use Revolution\Google\Sheets\Facades\Sheets;
 
 class AuthController extends Controller
@@ -24,7 +25,12 @@ class AuthController extends Controller
     }
 
     public function index(){
-        return view('landing');
+        // dd(Carbon::now());
+        $date = Carbon::today()->subDays(7);
+        $all = Result::where('result', 1)->take(16)->orderBy('created_at', 'desc')->get();
+        $thisWeak = Result::where('result', 1)->take(16)->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->orderBy('created_at', 'desc')->get();
+        $lastWeak = Result::where('result', 1)->take(16)->where('created_at','>=',$date)->orderBy('created_at', 'desc')->get();
+        return view('landing', compact('all','thisWeak', 'lastWeak'));
     }
 
     function encrypt($plaintext, $password) {
