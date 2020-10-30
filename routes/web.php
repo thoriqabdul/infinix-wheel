@@ -11,9 +11,6 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 Auth::routes();
 // Route::get('/Register', 'AuthController@regist')->name('regist');
 Route::get('/', 'AuthController@index')->name('landing');
