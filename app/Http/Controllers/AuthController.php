@@ -81,8 +81,7 @@ class AuthController extends Controller
         ];
 
         Sheets::spreadsheet(config('sheet.post_spreadsheet_id'))
-              ->sheet(config('sheet.post_sheet_id'))
-              ->range('A1')
+              ->sheet('spinn')
               ->append([$append]);
         return $notOne;
     }
