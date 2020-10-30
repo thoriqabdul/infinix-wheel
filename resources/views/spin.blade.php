@@ -208,10 +208,33 @@
         // Do basic alert of the segment text. You would probably want to do something more interesting with this information.
         // alert("The wheel stopped on " + indicatedSegment.text);
     }
-
+    var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
     let navAjax = (slam) => {
         $.ajax({
-            url: '{{route('kalah')}}?q='+slam,
+                    /* the route pointing to the post function */
+                    url: '{{route('kalah')}}',
+                    type: 'POST',
+                    /* send the csrf-token and the input to the controller */
+                    data: {_token: CSRF_TOKEN, q:slam},
+                    dataType: 'JSON',
+                    /* remind that 'data' is the response of the AjaxController */
+                    success: function (data) { 
+                        console.log(44, data);
+                        cray();
+                    }
+                });
+        // $.ajax({    
+        //     url: '{{route('kalah')}}?q='+slam,
+        //     dataType: 'html',
+        //     success: function(response){
+        //         $('.sampuy').html(response);
+        //     }
+        // })
+    }
+
+    function cray(){
+        $.ajax({    
+            url: '{{route('menang')}}',
             dataType: 'html',
             success: function(response){
                 $('.sampuy').html(response);

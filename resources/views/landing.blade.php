@@ -97,7 +97,7 @@
             <p style="color: #6775AF">PARTICIPAN ALL TIME</p>
             <h3  style="color: #31EEDA">2,000,000</h3>
           </div>
-          <div class="position-absolute d-none d-sm-block" style="left: 800px">
+          <div class="position-absolute d-none d-sm-block" style="left: 550px">
             <img src="{{asset('image/spin-gatot.png')}}" class="float-left" alt="" width="1000" height="700">
           </div>
         </div>

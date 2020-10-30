@@ -20,9 +20,15 @@ Route::get('/', 'AuthController@index')->name('landing');
 
 
 Route::group(['middleware'=>['auth']], function() {
-    Route::get('/spin', 'AuthController@spin')->name('spin');
-    Route::get('/kalah', 'AuthController@kalah')->name('kalah');
-Route::get('/menang', 'AuthController@menang')->name('menang');
+    Route::group(['middleware'=>['is_spin']], function() {
+        Route::get('/spin', 'AuthController@spin')->name('spin');
+        Route::post('/kalah', 'AuthController@kalah')->name('kalah');
+        
+    });
+    Route::group(['middleware'=>['is_result']], function() {
+        Route::get('/menang', 'AuthController@menang')->name('menang');
+        Route::get('/result', 'AuthController@reslt')->name('result');
+    });
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

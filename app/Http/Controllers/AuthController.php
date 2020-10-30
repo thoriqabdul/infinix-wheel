@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Result;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Auth;
@@ -54,13 +55,38 @@ class AuthController extends Controller
 
     public function kalah(Request $req){
         if($req->q%2 == 0){
+            // 1 is menang
+            $result = new Result();
+            $result->user_id = Auth::user()->id;
+            $result->result = 1;
+            $result->save();
+            $notOne=1;
+        }else{
+            
+            $result = new Result();
+            $result->user_id = Auth::user()->id;
+            $result->result = 0;
+            $result->save();
+            $notOne=0;
+        }
+        return $notOne;
+    }
+    public function menang(){
+        $result = Result::where('user_id', Auth::user()->id)->first();
+        if($result->result == 1){
             $user = Auth::user()->username;
             return view('menang', compact('user'));
         }else{
             return view('kalah');
         }
     }
-    public function menang(){
-        return view('menang');
+    public function reslt(){
+        $result = Result::where('user_id', Auth::user()->id)->first();
+        if($result->result == 1){
+            $user = Auth::user()->username;
+            return view('resultWin', compact('user'));
+        }else{
+            return view('resultLose');
+        }
     }
 }
