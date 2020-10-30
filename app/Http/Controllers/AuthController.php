@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Auth;
 use GuzzleHttp\Exception\RequestException;
+use Revolution\Google\Sheets\Facades\Sheets;
 
 class AuthController extends Controller
 {
@@ -54,6 +55,7 @@ class AuthController extends Controller
     }
 
     public function kalah(Request $req){
+        
         if($req->q%2 == 0){
             // 1 is menang
             $result = new Result();
@@ -69,6 +71,19 @@ class AuthController extends Controller
             $result->save();
             $notOne=0;
         }
+        $tark = $result->result == 1 ? 'Menang' : 'Kalah';
+        $date = date('d-m-Y h:i', strtotime($result->created_at));
+        $append = [
+            $result->user->username,
+            $result->user->email,
+            $tark,
+            $date,
+        ];
+
+        Sheets::spreadsheet(config('sheet.post_spreadsheet_id'))
+              ->sheet(config('sheet.post_sheet_id'))
+              ->range('A1')
+              ->append([$append]);
         return $notOne;
     }
     public function menang(){
