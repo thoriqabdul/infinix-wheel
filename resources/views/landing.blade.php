@@ -118,8 +118,8 @@
     </header>
 
           <div class="container">
-              <div class="row align-items-center">
-                  <div class="col-lg-5 col-12">
+              <div class="row">
+                  <div class="col-lg-5 col-12 align-self-start">
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                       <li class="nav-item">
                         <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" >All</a>
@@ -194,7 +194,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-7 col-12 text-center">
+                  <div class="col-lg-7 col-12 text-center align-self-center">
                         <img src="{{asset('image/phone.png')}}" alt="" width="" class="img-fluid">
                             
                   </div>
