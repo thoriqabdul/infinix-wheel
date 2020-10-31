@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Regist</title>
+    <title>Infinix</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
@@ -55,7 +55,7 @@
             opacity: 0.26;
             background-position: center;
             background-repeat: no-repeat;
-            background-size: cover
+            background-size: cover;
         }
         
         .font-size{
@@ -94,22 +94,6 @@
           z-index: 999;
       }
 
-      @media only screen and (max-width: 600px) {
-        .foot {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-      }
-    }
-
-    @media only screen and (min-width: 605px) {
-      .foot {
-        position: absolute;
-        bottom: 0;
-        width: 50%;
-        z-index: 0;
-      }
-}
 
         
        
@@ -127,7 +111,7 @@
             @yield('content')
           
         </div>
-        <div class="row">
+        <div class="row justify-content-center">
           <div class="col-12 pt-5">
             <div class="text-center font-size">
                 <img src="{{asset('image/x.png')}}" alt="" width="100" height="30"><br><br>
